@@ -1,19 +1,17 @@
-ReSpeaker Lights
+# ReSpeaker Lights
 
-Control the NeoPixels on your ReSpeaker with your voice
+Control the NeoPixels on the ReSpeaker with your voice. [video](https://youtu.be/xZ3_fAlDEvA?t=2s)
 
-// TODO embed demo video here
-
-# Prerequisites
+## Prerequisites
 
 These instructions assume that you've set up the network on your ReSpeaker. See the [Getting Started Guide](https://github.com/respeaker/get_started_with_respeaker/wiki) for more info.
 
-# Installation
+## Installation
 
-## Arduino
+### Arduino
 On your computer use Arduino IDE 1.6.11 to load [lights.ino](lights.ino) onto your ReSpeaker.
 
-## OpenWrt
+### OpenWrt
 
 Clone the source code onto the SD Card of your ReSpeaker.
 
@@ -29,7 +27,7 @@ Clone this repo onto the SD card
 Libraries
 
     cd respeaker-lights
-    pip install monotonic pyaudio webrtcvad
+    pip install monotonic webrtcvad
 
 Get a key for the [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/speech-api) and create creds.py with the key
 
@@ -42,10 +40,10 @@ Run the app
 
 Give the app time to start, then try "Turn the lights on", "Make the lights red", "Turn the brightness up", "Make the lights green", "Turn the lights off".
 
-# Next
+## Next
 
 What's next? This app runs an open microphone and sends all text to Microsoft for voice to text, which isn't ideal. Ideally this could run in offline mode using pocketsphinx or use a combination of keyword spotting and Bing. See the [pocketsphinx_keyword_spotting](https://github.com/respeaker/pocketsphinx_keyword_spotting) and [respeaker_hi](https://github.com/respeaker/respeaker_hi) examples.
 
-# Props
+## Props
 
 This code is based on the [microsoft_cognitive_services](https://github.com/respeaker/microsoft_cognitive_services) and [spi bridge](https://github.com/respeaker/spi_bridge) ReSpeaker examples.
