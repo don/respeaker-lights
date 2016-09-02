@@ -1,6 +1,8 @@
 # ReSpeaker Lights
 
-Control the NeoPixels on the ReSpeaker with your voice. [video](https://youtu.be/xZ3_fAlDEvA?t=2s)
+Control the NeoPixels on the ReSpeaker with your voice. 
+
+[Demo video](https://youtu.be/xZ3_fAlDEvA?t=2s)
 
 ## Prerequisites
 
