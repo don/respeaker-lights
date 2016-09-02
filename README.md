@@ -1,6 +1,6 @@
 # ReSpeaker Lights
 
-Control the NeoPixels on the ReSpeaker with your voice. 
+Control the NeoPixels on the Seeed Studio [ReSpeaker](http://respeaker.io/) with your voice. 
 
 [Demo video](https://youtu.be/xZ3_fAlDEvA?t=2s)
 
