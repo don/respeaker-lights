@@ -76,13 +76,10 @@ class BingVoice():
     def auth(self):
         if self.expire_time is None or monotonic() > self.expire_time:  # first credential request, or the access token from the previous one expired
             # get an access token using OAuth
-            credential_url = "https://oxford-speech.cloudapp.net/token/issueToken"
-            credential_request = Request(credential_url, data=urlencode({
-                "grant_type": "client_credentials",
-                "client_id": "python",
-                "client_secret": self.key,
-                "scope": "https://speech.platform.bing.com"
-            }).encode("utf-8"))
+            credential_url = "https://api.cognitive.microsoft.com/sts/v1.0/issueToken"
+            credention_data=""
+            credention_headers={"Ocp-Apim-Subscription-Key": self.key }
+            credential_request = Request(credential_url, credention_data, credention_headers)
             start_time = monotonic()
             try:
                 credential_response = urlopen(credential_request)
@@ -91,12 +88,10 @@ class BingVoice():
                     getattr(e, "reason", "status {0}".format(e.code))))  # use getattr to be compatible with Python 2.6
             except URLError as e:
                 raise RequestError("recognition connection failed: {0}".format(e.reason))
-            credential_text = credential_response.read().decode("utf-8")
-            credentials = json.loads(credential_text)
-            self.access_token, expiry_seconds = credentials["access_token"], float(credentials["expires_in"])
+            access_token = credential_response.read().decode("utf-8")
+            self.access_token = access_token
 
-            self.expire_time = start_time + expiry_seconds
-
+            self.expire_time = start_time + 600
     def recognize(self, audio_data, language="en-US", show_all=False):
         self.auth()
         wav_data = self.to_wav(audio_data)
