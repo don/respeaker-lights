@@ -76,7 +76,6 @@ class BingVoice():
     def auth(self):
         if self.expire_time is None or monotonic() > self.expire_time:  # first credential request, or the access token from the previous one expired
             # get an access token using OAuth
-            credential_url = "https://oxford-speech.cloudapp.net/token/issueToken"
             credential_url = "https://api.cognitive.microsoft.com/sts/v1.0/issueToken"
             credention_data=""
             credention_headers={"Ocp-Apim-Subscription-Key": self.key }
