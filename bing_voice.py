@@ -89,7 +89,7 @@ class BingVoice():
             except URLError as e:
                 raise RequestError("recognition connection failed: {0}".format(e.reason))
             access_token = credential_response.read().decode("utf-8")
-            self.access_token, expiry_seconds = access_token, (start_time + 600)
+            self.access_token = access_token
 
             self.expire_time = start_time + 600
     def recognize(self, audio_data, language="en-US", show_all=False):
